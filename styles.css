@@ -1,0 +1,690 @@
+/* ===== Reset & Base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: #1a6fa5;
+}
+
+/* ===== Header ===== */
+.header {
+  background: #fff;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid #1a3a6b;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-left .emblem {
+  width: 48px;
+  height: 48px;
+}
+
+.header-left .header-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-left .header-text .title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a3a6b;
+  line-height: 1.3;
+}
+
+.header-left .header-text .subtitle {
+  font-size: 11px;
+  color: #555;
+  line-height: 1.3;
+}
+
+.header-right .aadhaar-logo {
+  width: 72px;
+  height: auto;
+}
+
+/* ===== Nav Bar (myAadhaar) ===== */
+.nav-bar {
+  background: #1a3a6b;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-bar-left .dashboard-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.nav-bar-left .nav-title {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.nav-bar-right .lang-icon {
+  width: 21px;
+  height: 18px;
+}
+
+/* ===== Breadcrumb ===== */
+.breadcrumb {
+  padding: 8px 16px;
+  font-size: 13px;
+  color: #666;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.breadcrumb a {
+  color: #1a6fa5;
+}
+
+.breadcrumb .separator {
+  margin: 0 6px;
+  color: #999;
+}
+
+/* ===== Page Title ===== */
+.page-title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a3a6b;
+  padding: 16px;
+}
+
+/* ===== Card ===== */
+.card {
+  background: #fff;
+  border-radius: 8px;
+  margin: 0 12px 16px;
+  padding: 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card-gradient-top {
+  height: 5px;
+  background: linear-gradient(to right, #00b4d8, #1a3a6b);
+}
+
+.card-body {
+  padding: 20px 20px 24px;
+}
+
+/* ===== Form Elements ===== */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+.form-input {
+  width: 100%;
+  border: none;
+  border-bottom: 1.5px solid #ccc;
+  padding: 8px 0;
+  font-size: 18px;
+  color: #999;
+  background: transparent;
+  outline: none;
+  font-family: inherit;
+}
+
+.form-input:focus {
+  border-bottom-color: #1a3a6b;
+  color: #333;
+}
+
+.form-input::placeholder {
+  color: #bbb;
+}
+
+/* ===== Captcha Row ===== */
+.captcha-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.captcha-row .form-group {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.captcha-valid-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  color: #1a6fa5;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.captcha-valid-btn .check-icon {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #1a6fa5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #1a6fa5;
+}
+
+/* ===== OTP Section ===== */
+.otp-success {
+  font-size: 15px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.otp-label {
+  font-size: 14px;
+  color: #1a6fa5;
+  margin-bottom: 8px;
+}
+
+.otp-input {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #1a3a6b;
+  padding: 8px 0;
+  font-size: 18px;
+  color: #333;
+  background: transparent;
+  outline: none;
+  font-family: inherit;
+}
+
+.resend-timer {
+  text-align: right;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a3a6b;
+  margin-top: 8px;
+  margin-bottom: 20px;
+}
+
+/* ===== Buttons ===== */
+.btn-login {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(to right, #1a3a6b, #2a8a9e);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+}
+
+.btn-login:hover {
+  opacity: 0.9;
+}
+
+.btn-send-otp {
+  display: block;
+  width: 60%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  background: #888;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.btn-send-otp:hover {
+  background: #777;
+}
+
+/* ===== Radio Group ===== */
+.radio-group {
+  margin-bottom: 20px;
+}
+
+.radio-group .radio-description {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+
+.radio-option input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #999;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.radio-option input[type="radio"]:checked {
+  border-color: #1a6fa5;
+}
+
+.radio-option input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background: #1a6fa5;
+  border-radius: 50%;
+}
+
+.radio-option label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+}
+
+/* ===== Captcha Image Section ===== */
+.captcha-image-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.captcha-image-box {
+  width: 180px;
+  height: 60px;
+  background: #e8e8e8;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 700;
+  font-style: italic;
+  color: #333;
+  letter-spacing: 3px;
+  text-decoration: line-through;
+  font-family: 'Courier New', monospace;
+  user-select: none;
+}
+
+.captcha-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.captcha-action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  color: #555;
+  padding: 4px;
+}
+
+.captcha-action-btn:hover {
+  color: #333;
+}
+
+/* ===== FAQ Section ===== */
+.faq-section {
+  padding: 16px 12px;
+}
+
+.faq-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.faq-header .faq-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.faq-header h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.faq-item {
+  border: 1.5px solid #1a6fa5;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  cursor: pointer;
+  background: #fff;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  font-family: inherit;
+}
+
+.faq-question:hover {
+  background: #f9f9f9;
+}
+
+.faq-question .chevron {
+  font-size: 18px;
+  color: #555;
+  transition: transform 0.3s;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.faq-question.active .chevron {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  display: none;
+  padding: 0 16px 14px;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.faq-answer.show {
+  display: block;
+}
+
+/* ===== Notification Banner ===== */
+.notification-banner {
+  background: #4a8c3f;
+  color: #fff;
+  padding: 14px 40px 14px 16px;
+  font-size: 14px;
+  line-height: 1.4;
+  position: relative;
+  display: none;
+}
+
+.notification-banner.show {
+  display: block;
+}
+
+.notification-banner .close-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px;
+}
+
+/* ===== Masked Aadhaar Card ===== */
+.masked-aadhaar-card {
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.masked-aadhaar-card .circle-checkbox {
+  width: 28px;
+  height: 28px;
+  border: 2px solid #bbb;
+  border-radius: 50%;
+  flex-shrink: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.masked-aadhaar-card .circle-checkbox.checked {
+  border-color: #1a6fa5;
+  background: #1a6fa5;
+}
+
+.masked-aadhaar-card .circle-checkbox.checked::after {
+  content: '\2713';
+  color: #fff;
+  font-size: 14px;
+}
+
+.masked-aadhaar-card p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* ===== OTP Section (inside card) ===== */
+.otp-section {
+  margin-top: 24px;
+  display: none;
+}
+
+.otp-enter-label {
+  display: block;
+  font-size: 18px;
+  color: #1a6fa5;
+  margin-bottom: 0;
+}
+
+.otp-input-wrapper {
+  margin-bottom: 6px;
+}
+
+.otp-underline-input {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #c0392b;
+  padding: 8px 0;
+  font-size: 20px;
+  color: #333;
+  background: transparent;
+  outline: none;
+  font-family: inherit;
+}
+
+.otp-validation-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  gap: 8px;
+}
+
+.validation-msg {
+  font-size: 12px;
+  color: #c0392b;
+  line-height: 1.4;
+  flex: 1;
+}
+
+.resend-otp-link {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a3a6b;
+  white-space: nowrap;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.btn-verify-download {
+  display: block;
+  width: 60%;
+  padding: 14px;
+  border: none;
+  border-radius: 4px;
+  background: linear-gradient(to right, #1a3a6b, #2a8a9e);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.btn-verify-download:hover {
+  opacity: 0.9;
+}
+
+/* ===== Success State ===== */
+.success-icon-wrapper {
+  text-align: center;
+  padding: 32px 16px 24px;
+}
+
+.success-circle {
+  display: inline-block;
+  padding: 10px;
+  background-color: rgb(68, 168, 56);
+  border-radius: 50%;
+  margin-bottom: 10px;
+  line-height: 0;
+}
+
+.success-text {
+  font-size: 16px;
+  color: #999;
+  line-height: 1.5;
+}
+
+.info-paragraph {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.info-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.section-title-centered {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  color: #7a9bb5;
+  padding: 16px 12px 12px;
+}
+
+.dashboard-btn-wrapper {
+  padding: 20px 12px 32px;
+  text-align: center;
+}
+
+.btn-go-dashboard {
+  display: inline-block;
+  width: 60%;
+  padding: 14px;
+  border: none;
+  border-radius: 4px;
+  background: linear-gradient(to right, #1a3a6b, #2a8a9e);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-go-dashboard:hover {
+  opacity: 0.9;
+}
+
+/* ===== Footer ===== */
+.footer {
+  margin-top: auto;
+  background: #0a1a3a;
+  padding: 14px 16px;
+  text-align: center;
+}
+
+.footer p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* ===== Responsive Container ===== */
+.main-content {
+  flex: 1;
+  max-width: 480px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    max-width: 100%;
+  }
+}

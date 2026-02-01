@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eAadhaar Download - myAadhaar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-left">
+      <img src="assets/uidai_english_logo.37b7e790fc0b23da21bc9df098a66467.svg" alt="UIDAI Emblem" class="emblem">
+      <div class="header-text">
+        <span class="title">Unique Identification Authority of India</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <img src="assets/aadhaar_english_logo.9a2d63795a7f7bdd7acb2148585336be.svg" alt="Aadhaar Logo" class="aadhaar-logo">
+    </div>
+  </header>
+
+  <!-- Notification Banner -->
+  <div class="notification-banner" id="otpBanner">
+    OTP successfully dispatched to your Aadhaar registered mobile number
+    <button class="close-btn" onclick="document.getElementById('otpBanner').classList.remove('show')">&times;</button>
+  </div>
+
+  <!-- Nav Bar -->
+  <nav class="nav-bar">
+    <div class="nav-bar-left">
+      <svg class="dashboard-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+        <defs><style>.a{fill:#fff;}</style></defs>
+        <g transform="translate(-32 -184)">
+          <rect class="a" width="8" height="8" rx="2" transform="translate(32 184)"/>
+          <path class="a" d="M2,0H6A2,2,0,0,1,8,2V6A2,2,0,0,1,6,8H2A2,2,0,0,1,0,6V2A2,2,0,0,1,2,0Z" transform="translate(42 184)"/>
+          <rect class="a" width="8" height="8" rx="2" transform="translate(42 194)"/>
+          <rect class="a" width="8" height="8" rx="2" transform="translate(32 194)"/>
+        </g>
+      </svg>
+      <span class="nav-title">myAadhaar</span>
+    </div>
+    <div class="nav-bar-right">
+      <svg class="lang-icon" xmlns="http://www.w3.org/2000/svg" width="21" height="18" viewBox="0 0 21 18">
+        <defs><style>.la,.ld{fill:none;}.la{stroke:#fff;}.lb{fill:#fff;}.lc{stroke:none;}</style></defs>
+        <g class="la" transform="translate(0 6)"><rect class="lc" width="12" height="12" rx="2"/><rect class="ld" x="0.5" y="0.5" width="11" height="11" rx="1.5"/></g>
+        <g class="la" transform="translate(8)"><rect class="lc" width="13" height="13" rx="2"/><rect class="ld" x="0.5" y="0.5" width="12" height="12" rx="1.5"/></g>
+        <path class="lb" d="M.885-7.438l-.741.68a2,2,0,0,0,1.712.825,1.518,1.518,0,0,0,1.689-1.5v-.046A.992.992,0,0,0,3.92-7.4a1.16,1.16,0,0,0,.344-.054v1.8H5.341v-4.3h.8v-.833H3.668v.833h.6v1.582a1.3,1.3,0,0,1-.611.13,1.339,1.339,0,0,1-.611-.153.16.16,0,0,1-.046-.031H2.987a.883.883,0,0,0-.26-.092v-.031a1.053,1.053,0,0,0,.558-.986,1.321,1.321,0,0,0-1.49-1.292,1.634,1.634,0,0,0-1.361.642l.673.634a.728.728,0,0,1,.657-.382.49.49,0,0,1,.535.5c0,.344-.191.589-.657.589H1.375v.894h.413c.489,0,.726.2.726.527a.576.576,0,0,1-.642.581A1.146,1.146,0,0,1,.885-7.438Z" transform="translate(12.28 14.444)"/>
+        <path class="lb" d="M5.193,11.587c-.112-.388-.25-1.064-.25-1.064H4.927s-.138.676-.25,1.064l-.356,1.2H5.543Zm-2.988,3.2L4.049,9.368a.383.383,0,0,1,.365-.26H5.456a.391.391,0,0,1,.365.26l1.843,5.421a.386.386,0,0,1-.365.51H6.565a.385.385,0,0,1-.369-.276L5.9,14H3.965L3.674,15.02A.388.388,0,0,1,3.3,15.3H2.571a.387.387,0,0,1-.365-.51Z" transform="translate(0.815 -0.109)"/>
+      </svg>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <span>Dashboard</span>
+    <span class="separator">&rsaquo;</span>
+    <a href="#">eAadhaar Download</a>
+  </div>
+
+  <div class="main-content">
+    <!-- Card -->
+    <div class="card" id="formCard" style="margin-top: 8px;">
+      <div class="card-gradient-top"></div>
+      <div class="card-body">
+
+        <!-- Radio Selection -->
+        <div class="radio-group">
+          <p class="radio-description">
+            Select 12 digit Aadhaar Number /16 digit Virtual ID (VID) Number / 28 digit Enrolment ID (EID) Number / 28 digit Service ID (SID) Number.
+          </p>
+
+          <div class="radio-option">
+            <input type="radio" name="idType" id="aadhaarNum" value="aadhaar" checked>
+            <label for="aadhaarNum">Aadhaar Number</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" name="idType" id="enrolmentId" value="enrolment">
+            <label for="enrolmentId">Enrolment ID Number</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" name="idType" id="virtualId" value="virtual">
+            <label for="virtualId">Virtual ID Number</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" name="idType" id="sid" value="sid">
+            <label for="sid">SID</label>
+          </div>
+        </div>
+
+        <!-- Aadhaar Number Input -->
+        <div class="form-group">
+          <input type="text" class="form-input" id="aadhaarInput" placeholder="Enter Aadhaar Number" maxlength="12" inputmode="numeric" style="font-size: 20px; color: #bbb;">
+        </div>
+
+        <!-- Captcha Image -->
+        <div class="captcha-image-section">
+          <div class="captcha-image-box" id="captchaDisplay">x89tnt</div>
+          <div class="captcha-actions">
+            <button class="captcha-action-btn" title="Listen to captcha" aria-label="Audio captcha">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" fill="#555"/>
+              </svg>
+            </button>
+            <button class="captcha-action-btn" title="Refresh captcha" aria-label="Refresh captcha" id="refreshCaptcha">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" fill="#555"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Enter Captcha -->
+        <div class="form-group">
+          <input type="text" class="form-input" id="captchaInput" placeholder="Enter Captcha" style="font-size: 20px; color: #bbb;">
+        </div>
+
+        <!-- Send OTP Button -->
+        <button class="btn-send-otp" id="sendOtpBtn">Send OTP</button>
+
+        <!-- Masked Aadhaar Option (shown after OTP sent) -->
+        <div class="masked-aadhaar-card" id="maskedCard" style="display: none;">
+          <div class="circle-checkbox" id="maskedCheckbox" onclick="this.classList.toggle('checked')"></div>
+          <p>Do you want a masked Aadhaar?</p>
+        </div>
+
+        <!-- OTP Section (shown after OTP sent) -->
+        <div class="otp-section" id="otpSection">
+          <label class="otp-enter-label">Enter OTP</label>
+          <div class="otp-input-wrapper">
+            <input type="text" class="otp-underline-input" id="otpInput" maxlength="6" inputmode="numeric">
+          </div>
+          <div class="otp-validation-row">
+            <span class="validation-msg" id="otpValidation">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: -2px; margin-right: 4px;">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="#c0392b"/>
+              </svg>
+              This is a required field and valid data to be entered.
+            </span>
+            <span class="resend-otp-link" id="resendOtp">Resend OTP</span>
+          </div>
+          <button class="btn-verify-download" id="verifyBtn">Verify &amp; Download</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== SUCCESS STATE (hidden by default) ===== -->
+    <div id="successState" style="display: none;">
+
+      <!-- Success Icon -->
+      <div class="success-icon-wrapper">
+        <div class="success-circle">
+          <img src="assets/DownloadSuccess2.c70d723d25fbf73085ecaa990e2b1edd.svg" alt="Download Successful Icon" width="60" height="60">
+        </div>
+        <p class="success-text">Your eAadhaar has been<br>successfully downloaded</p>
+      </div>
+
+      <!-- Password Info Card -->
+      <div class="card">
+        <div class="card-gradient-top"></div>
+        <div class="card-body">
+          <p class="info-paragraph">Your eAadhaar password will be of 7/8 characters in length.</p>
+          <p class="info-paragraph">If your name contains more than 3 letters, your eAadhaar password will be a combination of the first four letters of your name followed by the year of birth.</p>
+          <p class="info-paragraph">If your name contains only 3 letters, your eAadhaar password will be a combination of the first three letters of your name followed by the year of birth.</p>
+          <p class="info-paragraph"><strong>Example</strong></p>
+          <p class="info-paragraph">1. If your name is ANISH Y KUMAR and your Year of Birth is 1989, then your eAadhaar password will be ANIS1989</p>
+          <p class="info-paragraph">2. If your name if RIA and your Year of Birth is 1989, then your eAadhaar password will be RIA1989</p>
+        </div>
+      </div>
+
+      <!-- Digital Signature Title -->
+      <h2 class="section-title-centered">Verification of the Digital Signature</h2>
+
+      <!-- Digital Signature Card -->
+      <div class="card">
+        <div class="card-gradient-top"></div>
+        <div class="card-body">
+          <p class="info-paragraph">To successfully validate the digital signature on eAadhaar and see the 'green tick' in the PDF, we recommend that you download and open it in the latest version of Adobe Acrobat Reader on Microsoft Windows or MacOS.</p>
+          <p class="info-paragraph">If the signature still shows a warning or question mark, you may need to manually add the signing certificate to your trusted identities.</p>
+          <p class="info-paragraph">Instructions on how to do this can be found on the Adobe Help website:<br>https://helpx.adobe.com/acrobat/using/trusted-identities.html</p>
+        </div>
+      </div>
+
+      <!-- Go To Dashboard Button -->
+      <div class="dashboard-btn-wrapper">
+        <button class="btn-go-dashboard">Go To Dashboard</button>
+      </div>
+
+    </div>
+
+    <!-- FAQ Section (hidden on success) -->
+    <section class="faq-section" id="faqSection">
+      <div class="faq-header">
+        <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="21" height="19.577" viewBox="0 0 21 19.577">
+          <defs><style>.fqa{fill:#14809f;}</style></defs>
+          <path class="fqa" d="M14.537,13.156l1.306,1.333a2.287,2.287,0,0,1-2.263,2.178H5.81L3.242,19.311a.77.77,0,0,1-.588.267.859.859,0,0,1-.849-.867V16.645A2.322,2.322,0,0,1,0,14.378V7.356A2.286,2.286,0,0,1,2.263,5.045H3.634V6.667H2.263a.69.69,0,0,0-.7.689v7a.708.708,0,0,0,.7.711H3.4v1.822l1.784-1.822H13.6a.709.709,0,0,0,.7-.711v-1.2h.239ZM21,2.311v7a2.321,2.321,0,0,1-1.806,2.267v2.067a1,1,0,0,1-.261.644,1.02,1.02,0,0,1-.609.222.85.85,0,0,1-.609-.266l-2.546-2.6H7.4a2.239,2.239,0,0,1-1.6-.676,2.335,2.335,0,0,1-.663-1.635V2.31A2.286,2.286,0,0,1,7.4,0H18.714a2.228,2.228,0,0,1,1.617.665A2.325,2.325,0,0,1,21,2.311ZM13.645,8.467a.348.348,0,0,0-.349-.356h-.915a.347.347,0,0,0-.348.356v.6a.347.347,0,0,0,.348.356H13.3a.347.347,0,0,0,.348-.356v-.6Zm1.806-4.111a2.066,2.066,0,0,0-.653-1.6,2.58,2.58,0,0,0-1.806-.6,2.744,2.744,0,0,0-1.72.511,1.708,1.708,0,0,0-.631,1.289.226.226,0,0,0,.217.244l1.022.023a.38.38,0,0,0,.37-.267.841.841,0,0,1,.2-.333.785.785,0,0,1,.544-.2.775.775,0,0,1,.609.244.913.913,0,0,1,.217.667,1.341,1.341,0,0,1-.2.71,1.585,1.585,0,0,1-.5.512,3.568,3.568,0,0,0-.871.8,1.407,1.407,0,0,0-.217.755.243.243,0,0,0,.261.267h1.11a.26.26,0,0,0,.261-.222,1.086,1.086,0,0,1,.108-.422,1.129,1.129,0,0,1,.414-.445,2.66,2.66,0,0,0,.914-.8,1.976,1.976,0,0,0,.349-1.133Z" transform="translate(0 -0.001)"/>
+        </svg>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>What is e-Aadhaar?</span>
+          <span class="chevron">&#9660;</span>
+        </button>
+        <div class="faq-answer">
+          <p>e-Aadhaar is a password protected electronic copy of Aadhaar, which is digitally signed by UIDAI. e-Aadhaar is equally valid like physical copy of Aadhaar for all purposes.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Is e-Aadhaar equally valid like physical copy of Aadhaar?</span>
+          <span class="chevron">&#9660;</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, e-Aadhaar is equally valid as the physical copy of Aadhaar letter for all purposes.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>What is Masked Aadhaar?</span>
+          <span class="chevron">&#9660;</span>
+        </button>
+        <div class="faq-answer">
+          <p>Masked Aadhaar displays only the last 4 digits of your Aadhaar number. The first 8 digits are masked with 'xxxx xxxx' for enhanced privacy and security.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>How do I validate the digital signature?</span>
+          <span class="chevron">&#9660;</span>
+        </button>
+        <div class="faq-answer">
+          <p>To validate the digital signature, open the e-Aadhaar PDF in Adobe Reader and click on the signature panel to verify the validity of the digital signature.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>What Is the Password of e-Aadhaar?</span>
+          <span class="chevron">&#9660;</span>
+        </button>
+        <div class="faq-answer">
+          <p>The password to open e-Aadhaar is the combination of first four letters of your name in CAPITAL and your year of birth (YYYY).</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>What supporting software needed to open e-Aadhaar?</span>
+          <span class="chevron">&#9660;</span>
+        </button>
+        <div class="faq-answer">
+          <p>You need Adobe Acrobat Reader to open and validate the e-Aadhaar PDF document. You can download it from the official Adobe website.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>How can an Aadhaar Number holder download e-Aadhaar?</span>
+          <span class="chevron">&#9660;</span>
+        </button>
+        <div class="faq-answer">
+          <p>An Aadhaar number holder can download e-Aadhaar by visiting the UIDAI website or myAadhaar portal, entering the Aadhaar/VID/EID number, verifying via OTP, and downloading the PDF.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Copyright &copy; 2024 Unique Identification Authority of India All Rights Reserved</p>
+  </footer>
+
+  <script>
+    // Aadhaar card database — maps normalized ID to filename
+    const aadhaarCards = {
+      '298387683971': 'aadhar-cards/EAadhaar_2983 8768 3971.pdf',
+      '731000292928': 'aadhar-cards/EAadhaar_731000292928.pdf',
+      '759643619519': 'aadhar-cards/EAadhaar_7596 4361 9519.pdf'
+    };
+
+    let matchedFile = null;
+    let countdownInterval = null;
+
+    // FAQ Toggle
+    function toggleFaq(btn) {
+      const answer = btn.nextElementSibling;
+      const isOpen = answer.classList.contains('show');
+      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('show'));
+      document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
+      if (!isOpen) {
+        answer.classList.add('show');
+        btn.classList.add('active');
+      }
+    }
+
+    // Numeric only for aadhaar input
+    document.getElementById('aadhaarInput').addEventListener('input', function() {
+      this.value = this.value.replace(/[^0-9]/g, '').slice(0, 12);
+      // Reset style when user types
+      this.style.color = '#333';
+    });
+
+    // Update placeholder based on selected radio
+    document.querySelectorAll('input[name="idType"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+        const input = document.getElementById('aadhaarInput');
+        const labels = {
+          aadhaar: { placeholder: 'Enter Aadhaar Number', maxlength: 12 },
+          enrolment: { placeholder: 'Enter Enrolment ID Number', maxlength: 28 },
+          virtual: { placeholder: 'Enter Virtual ID Number', maxlength: 16 },
+          sid: { placeholder: 'Enter SID Number', maxlength: 28 }
+        };
+        const config = labels[this.value];
+        input.placeholder = config.placeholder;
+        input.maxLength = config.maxlength;
+        input.value = '';
+      });
+    });
+
+    // Random captcha on refresh
+    document.getElementById('refreshCaptcha').addEventListener('click', function() {
+      const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+      let captcha = '';
+      for (let i = 0; i < 6; i++) {
+        captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      document.getElementById('captchaDisplay').textContent = captcha;
+    });
+
+    // Send OTP button click
+    document.getElementById('sendOtpBtn').addEventListener('click', function() {
+      const aadhaarValue = document.getElementById('aadhaarInput').value.replace(/\s/g, '');
+      const captchaValue = document.getElementById('captchaInput').value.trim();
+
+      // Validate aadhaar number is entered
+      if (!aadhaarValue || aadhaarValue.length < 12) {
+        document.getElementById('aadhaarInput').style.borderBottomColor = '#c0392b';
+        return;
+      }
+
+      // Validate captcha is entered
+      if (!captchaValue) {
+        document.getElementById('captchaInput').style.borderBottomColor = '#c0392b';
+        return;
+      }
+
+      // Check if aadhaar number exists in our database
+      const normalizedId = aadhaarValue.replace(/\s/g, '');
+      if (aadhaarCards[normalizedId]) {
+        matchedFile = aadhaarCards[normalizedId];
+      } else {
+        matchedFile = null;
+      }
+
+      // Show notification banner
+      document.getElementById('otpBanner').classList.add('show');
+
+      // Show masked aadhaar card
+      document.getElementById('maskedCard').style.display = 'flex';
+
+      // Show OTP section inside card
+      document.getElementById('otpSection').style.display = 'block';
+
+      // Hide validation message initially
+      document.getElementById('otpValidation').style.display = 'none';
+
+      // Start countdown timer
+      let seconds = 55;
+      const countdownEl = document.getElementById('countdown');
+      const timerEl = document.getElementById('resendOtp');
+      timerEl.innerHTML = 'Resend OTP in: <span id="countdown">55</span> Seconds';
+      timerEl.style.pointerEvents = 'none';
+
+      if (countdownInterval) clearInterval(countdownInterval);
+      countdownInterval = setInterval(() => {
+        seconds--;
+        const cd = document.getElementById('countdown');
+        if (cd) cd.textContent = seconds;
+        if (seconds <= 0) {
+          clearInterval(countdownInterval);
+          timerEl.textContent = 'Resend OTP';
+          timerEl.style.pointerEvents = 'auto';
+          timerEl.style.cursor = 'pointer';
+        }
+      }, 1000);
+
+      // Scroll to OTP section
+      setTimeout(() => {
+        document.getElementById('otpSection').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 200);
+    });
+
+    // OTP input — numeric only, 4 digits
+    document.getElementById('otpInput').addEventListener('input', function() {
+      this.value = this.value.replace(/[^0-9]/g, '').slice(0, 4);
+      // Hide validation when typing
+      if (this.value.length > 0) {
+        document.getElementById('otpValidation').style.display = 'none';
+        this.style.borderBottomColor = '#1a3a6b';
+      }
+    });
+
+    // Verify & Download button click
+    document.getElementById('verifyBtn').addEventListener('click', function() {
+      const otpValue = document.getElementById('otpInput').value.trim();
+
+      // Validate OTP is 4 digits
+      if (!otpValue || otpValue.length < 4) {
+        document.getElementById('otpValidation').style.display = 'inline';
+        document.getElementById('otpInput').style.borderBottomColor = '#c0392b';
+        return;
+      }
+
+      // Check if we have a matched aadhaar file
+      if (!matchedFile) {
+        document.getElementById('otpValidation').innerHTML =
+          '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: -2px; margin-right: 4px;">' +
+          '<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="#c0392b"/>' +
+          '</svg>Invalid Aadhaar number. No eAadhaar found.';
+        document.getElementById('otpValidation').style.display = 'inline';
+        return;
+      }
+
+      // Trigger PDF download
+      const link = document.createElement('a');
+      link.href = matchedFile;
+      link.download = matchedFile.split('/').pop();
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      // Clear countdown
+      if (countdownInterval) clearInterval(countdownInterval);
+
+      // Hide form card, FAQ, and notification banner
+      document.getElementById('formCard').style.display = 'none';
+      document.getElementById('faqSection').style.display = 'none';
+      document.getElementById('otpBanner').classList.remove('show');
+
+      // Show success state
+      document.getElementById('successState').style.display = 'block';
+
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Go To Dashboard — reload page
+    document.querySelector('.btn-go-dashboard').addEventListener('click', function() {
+      window.location.reload();
+    });
+  </script>
+
+</body>
+</html>
